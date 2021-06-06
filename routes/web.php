@@ -28,8 +28,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:isaA
     Route::get('bookShow/{id}','BookController@show');
     Route::get('bookCreate','BookController@create')->name('book.create');
     Route::get('/lists','ListController@index')->name('lists');
-    Route::get('/buyLinks','BuyLinkController@index')->name('buyLinks');
-     Route::post('/buyLink/{id}','BuyLinkController@destroy')->name('buyLink.destroy');
     Route::post('/listDestroy/{list_id}','ListController@destroy')->name('list.destroy');
     Route::get('listCreate','ListController@create')->name('list.create');
     Route::post('/listStore','ListController@store')->name('list.store');

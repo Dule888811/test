@@ -59,7 +59,7 @@ Route::post('/listUpdate/{list_id}','ListController@update')->name('user.list.up
 Route::get('user/listShow/{id}','ListController@show');
 Route::get('buy_links/{id}','BookController@BuyLinks')->name('user.buyLinks');
 Route::get('user/show/{id}','BuyLinkController@show')->name('user.buyLink.show');
-Route::get('user/buy_links/create/buyLinks','BuyLinkController@create')->name('user.buyLinks.create');
+Route::get('/create/buyLinks','BuyLinkController@create')->name('user.buyLinks.create');
 Route::post('/buyLink/destroy/{id}','BuyLinkController@destroy')->name('user.buyLink.destroy');
 Route::post('/buyLinkStore','BuyLinkController@store')->name('user.buyLink.store');
 Route::get('user/bookEdit/{id}','BuyLinkController@edit')->name('user.buyLink.edit');

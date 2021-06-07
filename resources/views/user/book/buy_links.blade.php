@@ -8,7 +8,7 @@
     @foreach($Buy_links as $buy_link)
         <ul class="ul-products">
             <li class="li-products">Title: {{$buy_link->name}}</li>
-            <li class="li-products"><a class="btn btn-primary"  href ="{{route('user.buyLink.destroy', ['id' => $buy_link->id])}}">Edit</a></li>
+            <li class="li-products"><a class="btn btn-primary"  href ="{{route('user.buyLink.edit', ['id' => $buy_link->id])}}">Edit</a></li>
 
             <form method="POST" action="{{route('user.buyLink.destroy', ['id' => $buy_link->id])}}">
                 @csrf

@@ -6,7 +6,7 @@
         @endforeach
     @endif
 
-    <form method="POST" enctype="multipart/form-data" action="{{route('buyLink.update',['id' => $buy_link->id])}}">
+    <form method="POST" enctype="multipart/form-data" action="{{route('user.buyLink.update',['id' => $buy_link->id])}}">
         <form>
             @csrf
             <div class="form-group">

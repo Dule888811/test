@@ -6,7 +6,7 @@ use App\Book;
 use App\Http\Controllers\Controller;
 use App\Lists;
 use App\Repositories\BookRepositoriesInterface;
-use App\Repositories\BookRepository;
+use App\Repositories\BookRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class BookController extends Controller
@@ -18,7 +18,7 @@ class BookController extends Controller
      */
     private $_bookRepositories;
 
-    public function __construct(BookRepositoriesInterface $bookRepositories)
+    public function __construct(BookRepositoryInterface $bookRepositories)
     {
       $this->_bookRepositories = $bookRepositories;
     }
@@ -38,6 +38,12 @@ class BookController extends Controller
     {
         $lists = Lists::all();
         return view('user.book.create')->with('lists',$lists);
+    }
+
+    public function BuyLinks($id)
+    {
+        $Buy_link = $this->_bookRepositories->BuyLinks($id);
+        return view('user.book.buy_links')->with('Buy_links',$Buy_link);
     }
 
     /**
@@ -88,7 +94,7 @@ class BookController extends Controller
     public function show($id)
     {
        $book = $this->_bookRepositories->findById($id);
-       return view('admin.book.show')->with('book',$book);
+       return view('user.book.show')->with('book',$book);
     }
 
     /**
@@ -101,7 +107,7 @@ class BookController extends Controller
     {
         $lists = Lists::all();
         $book = $this->_bookRepositories->findById($id);
-        return view('admin.book.edit')->with('book',$book)->with('lists',$lists);
+        return view('user.book.edit')->with('book',$book)->with('lists',$lists);
     }
 
     /**

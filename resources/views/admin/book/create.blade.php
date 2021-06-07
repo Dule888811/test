@@ -109,7 +109,7 @@
 
             <select name="list_id" id="list_id">
                 @foreach($lists as $list)
-                    <option value="{{$list->list_id}}">{{$list->list_name}}</option>
+                    <option value="{{$list->list_id}}">{{$list->title}}</option>
                  @endforeach
             </select>
             <button type="submit" class="btn btn-primary">Submit</button>

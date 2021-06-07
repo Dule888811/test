@@ -28,6 +28,13 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:isaA
     Route::get('bookShow/{id}','BookController@show');
     Route::get('bookCreate','BookController@create')->name('book.create');
     Route::get('/lists','ListController@index')->name('lists');
+    Route::get('/buy_links/{id}','BookController@BuyLinks')->name('buyLinks');
+    Route::get('/buy_links/show/{id}','BuyLinkController@show')->name('buyLink.show');
+    Route::get('buy_links/create/buyLinks','BuyLinkController@create')->name('buyLinks.create');
+     Route::post('/buyLink/destroy/{id}','BuyLinkController@destroy')->name('buyLink.destroy');
+    Route::post('/buyLinkStore','BuyLinkController@store')->name('buyLink.store');
+    Route::get('buy_links/edit/buyLinks/{id}','BuyLinkController@edit')->name('buyLink.edit');
+    Route::post('buy_links/post/buyLinks/{id}','BuyLinkController@update')->name('buyLink.update');
     Route::post('/listDestroy/{list_id}','ListController@destroy')->name('list.destroy');
     Route::get('listCreate','ListController@create')->name('list.create');
     Route::post('/listStore','ListController@store')->name('list.store');
@@ -50,6 +57,13 @@ Route::post('/listStore','ListController@store')->name('user.list.store');
 Route::get('user/listEdit/{list_id}','ListController@edit')->name('user.list.edit');
 Route::post('/listUpdate/{list_id}','ListController@update')->name('user.list.update');
 Route::get('user/listShow/{id}','ListController@show');
+Route::get('buy_links/{id}','BookController@BuyLinks')->name('user.buyLinks');
+Route::get('user/show/{id}','BuyLinkController@show')->name('user.buyLink.show');
+Route::get('user/buy_links/create/buyLinks','BuyLinkController@create')->name('user.buyLinks.create');
+Route::post('/buyLink/destroy/{id}','BuyLinkController@destroy')->name('user.buyLink.destroy');
+Route::post('/buyLinkStore','BuyLinkController@store')->name('user.buyLink.store');
+Route::get('user/bookEdit/{id}','BuyLinkController@edit')->name('user.buyLink.edit');
+Route::post('buy_links/post/buyLinks/{id}','BuyLinkController@update')->name('user.buyLink.update');
 
 Auth::routes();
 

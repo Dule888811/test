@@ -6,7 +6,7 @@ use App\Book;
 use App\Http\Controllers\Controller;
 use App\Lists;
 use App\Repositories\BookRepositoriesInterface;
-use App\Repositories\BookRepository;
+use App\Repositories\BookRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 class BookController extends Controller
@@ -18,16 +18,21 @@ class BookController extends Controller
      */
     private $_bookRepositories;
 
-    public function __construct(BookRepositoriesInterface $bookRepositories)
+    public function __construct(BookRepositoryInterface $bookRepositories)
     {
       $this->_bookRepositories = $bookRepositories;
     }
 
     public function index()
     {
-
        $books = $this->_bookRepositories->all();
         return view('admin.book.index')->with('books',$books);
+    }
+
+    public function BuyLinks($id)
+    {
+        $Buy_link = $this->_bookRepositories->BuyLinks($id);
+        return view('admin.book.buy_links')->with('Buy_links',$Buy_link);
     }
 
     /**

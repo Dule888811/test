@@ -7,12 +7,20 @@ namespace App\Repositories;
 use App\Book;
 use Illuminate\Http\Request;
 
-class BookRepository implements BookRepositoriesInterface
+class BookRepository implements  BookRepositoryInterface
 {
    public function all()
    {
        $books = Book::all();
        return $books;
+   }
+
+   public function BuyLinks($id)
+   {
+          $book = $this->findById($id);
+           $buy_links = $book->Buy_links;
+          return $buy_links;
+
    }
 
    public function findById($id)

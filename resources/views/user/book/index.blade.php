@@ -8,7 +8,7 @@
     @foreach($books as $book)
         <ul class="ul-products">
             <li class="li-products">Title: {{$book->title}}</li>
-            <li class="li-products"><a class="btn btn-primary"  href ="bookEdit/{{$book->id}}">Edit</a></li>
+            <li class="li-products"><a class="btn btn-primary"  href ="{{route('user.book.edit',['id'=> $book->id])}}">Edit</a></li>
 
             <form method="POST" action="{{route('user.book.destroy', ['id' => $book->id])}}">
                 @csrf

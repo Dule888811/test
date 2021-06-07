@@ -16,7 +16,7 @@
             </form>
             <li class="li-products"><a class="btn btn-primary"  href ="listCreate">Add book</a></li>
             <li class="li-products"><a class="btn btn-primary"  href ="bookShow/{{$book->id}}">Show details book</a></li>
-            <li class="li-products"><a class="btn btn-primary"  href ="{{'user.buyLinks',['id'=> $book->id]}}">See buy_links</a></li>
+            <li class="li-products"><a class="btn btn-primary"  href ="{{route('user.buyLinks',['id'=> $book->id])}}">See buy_links</a></li>
         </ul>
     @endforeach
     <a class="maintaining" href ="/home">Back to index</a>
